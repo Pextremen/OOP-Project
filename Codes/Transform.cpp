@@ -1,9 +1,18 @@
 #include "Transform.h"
+double rotationMatrix[3][3] = { 0 };
 Transform::Transform(){
-	this->angles[3] = { 0 };
-	this->trans[3] = { 0 };
-	this->rotationMatrix[3][3] = { 0 };
-	this->transMatrix[3][3] = { 0 };
+	for (int i = 0; i < 3; i++)
+	{
+		angles[i] = 0;
+		trans[i] = 0;
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			transMatrix[i][j] = 0;
+		}
+	}
 }
 
 void Transform::setAngles(double a, double b, double c)
