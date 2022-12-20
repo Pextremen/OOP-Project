@@ -1,8 +1,7 @@
 #include <iostream>
 #include "PointCloud.h"
 using namespace std;
-//void PointCloudTest()
-int main() {
+void PointCloudTest() {
     cout << "*****PointTest*****" << endl;
     Point p1(17, 13, 12);
     Point p2(3, 4, 5);
