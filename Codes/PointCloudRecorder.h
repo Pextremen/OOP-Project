@@ -1,13 +1,14 @@
 #pragma once
 #include "PointCloud.h"
 #include <string>
+#include<fstream>
 using namespace std;
-class PointCloudRecorder:public PointCloud {
+class PointCloudRecorder :public PointCloud {
 private:
 	string fileName;
 public:
-	PointCloudRecorder();
-	void setfileName();
+	PointCloudRecorder(string);
+	void setfileName(string);
 	string getfileName();
-	bool save(const PointCloud& pc);
+	bool save(PointCloud& pc);
 };
