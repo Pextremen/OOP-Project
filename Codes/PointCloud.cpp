@@ -26,15 +26,15 @@ void PointCloud::setpointNumber(int newpointNumber){
 	}
 	this->pointNumber = newpointNumber;
 	delete[] points;
-	points = temp; //ikinci for ile tek tek temp ten points'e atmaya gerek var mÄ±
+	points = temp; //ikinci for ile tek tek temp ten points'e atmaya gerek var mý
 }
 
 int PointCloud::getpointNumber(){return this->pointNumber;}
-Point* PointCloud::getPoints() {return points;}
-
+Point* PointCloud::getPoints() {return points;}  //diziyi return et
+void PointCloud::setPoints(int i, Point p) { this->points[i] = p;}
 PointCloud PointCloud::operator+(const PointCloud& p){
-	PointCloud temp;
 	int tempsize = p.pointNumber + this->pointNumber;
+	PointCloud temp(tempsize);
 	for (int i = 0; i < tempsize; i++) {
 		if (i < p.pointNumber) {
 			temp.points[i] = p.points[i];
@@ -46,10 +46,11 @@ PointCloud PointCloud::operator+(const PointCloud& p){
 	return temp;
 }
 
-void PointCloud::operator=(const PointCloud& p){
+PointCloud PointCloud::operator=(const PointCloud& p){
 	this->pointNumber = p.pointNumber;
 	points = new Point[pointNumber];
 	for (int i = 0; i < p.pointNumber; i++) {
 		points[i] = p.points[i];
 	}
+	return *this;
 }

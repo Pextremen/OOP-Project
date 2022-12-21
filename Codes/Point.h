@@ -3,18 +3,15 @@
 using namespace std;
 class Point {
 private:
-	double x;
-	double y;
-	double z;
+	double x, y, z;
 public:
-
-	Point(double x=0.0, double y=0.0, double z=0.0);
+	Point(double x = 0, double y = 0, double z = 0);
 	double getX();
 	double getY();
 	double getZ();
-	void setX(double x);
-	void setY(double y);
-	void setZ(double z);
+	void setX(double);
+	void setY(double);
+	void setZ(double);
 	double distance(const Point&)const;
 	bool operator==(const Point&);
 };

@@ -1,4 +1,3 @@
-#pragma once
 #include"Point.h"
 class PointCloud {
 private:
@@ -9,8 +8,8 @@ public:
 	PointCloud(PointCloud&);
 	void setpointNumber(int pointNumber);
 	int getpointNumber();
-
-	PointCloud* operator +(const PointCloud&);
-	void operator =(const PointCloud&);
 	Point* getPoints();
+	void setPoints(int, Point);
+	PointCloud operator +(const PointCloud&);
+	PointCloud  operator =(const PointCloud&);
 };

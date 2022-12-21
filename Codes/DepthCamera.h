@@ -2,13 +2,14 @@
 #include "PointCloud.h"
 #include <string>
 #include<fstream>
+#include <sstream>
 using namespace std;
 
-class DepthCamera:public PointCloud{
+class DepthCamera :public PointCloud {
 private:
 	string fileName;
 public:
-	DepthCamera(string="");
+	DepthCamera(string = "");
 	void setfileName(string);
 	string getfileName();
 	PointCloud capture();
