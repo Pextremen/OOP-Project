@@ -1,3 +1,4 @@
+#pragma once
 #include"Point.h"
 class PointCloud {
 private:
