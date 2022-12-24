@@ -6,6 +6,8 @@ private:
 	double angles[3];
 	double trans[3];
 	double transMatrix[4][4];
+	double rotationMatrix[3][3];
+
 public:
 	Transform();
 	void setAngles(double, double, double);
@@ -14,7 +16,7 @@ public:
 	double* getTrans();
 	void setRotation(double angles[]);
 	void setRotation(double rotation[3][3]);
-	void setTranslation(double trans[]);
+	void setTranslation();
 	Point doTransform(Point p);
-	PointCloud doTransform(PointCloud pc);
+	PointCloud doTransform(PointCloud &pc);
 };
