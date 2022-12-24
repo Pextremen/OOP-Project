@@ -12,7 +12,6 @@ void _3DGridMap::setDepth(int depth) {
     this->depth = depth;
 
 }
-
 int _3DGridMap::getDepth()
 {
     return	depth;
@@ -38,7 +37,7 @@ void _3DGridMap::insertPoint(Point& p)
     int ny = floor(p.getY() / this->getGridSize());
     int nz = floor(p.getZ() / this->getGridSize());
     if (nx >= 0 && ny >= 0 && nx >= 0 && nx < depth && ny < depth && nz < depth) {
-        (*this)(nx, ny, nz) = true;
+        *(map + nx * depth * depth + ny * depth + nz) = true;
     }
 }
 void _3DGridMap::insertPointCloud(PointCloud& pc)
@@ -78,7 +77,7 @@ bool _3DGridMap::loadMap(string fileName) {
             i++;
         }
         myfile.close();
-        cout << "Saved completely" << endl;
+        cout << "Load completely." << endl;
         return true;
     }
     else
@@ -99,6 +98,7 @@ bool _3DGridMap::saveMap(string fileName)
                 }
             }
         }
+        
         myfile.close();
         cout << "Saved completely." << endl;
         return true;
