@@ -18,17 +18,24 @@ PointCloud::PointCloud(PointCloud& p){ // Copy constructor
 		points[i] = p.points[i];
 	}
 }
-
-void PointCloud::setpointNumber(int newpointNumber){
-	Point* temp = new Point[newpointNumber];
-	for (int i = 0; i < newpointNumber; i++) {
-		temp[i] = points[i];
+void PointCloud::setpointNumber(int newpointNumber)
+{
+	Point* tmppoints = new Point[newpointNumber];
+	for (int i = 0; i < pointNumber; i++)
+	{
+		tmppoints[i] = points[i];
 	}
-	this->pointNumber = newpointNumber;
 	delete[] points;
-	points = temp; //ikinci for ile tek tek temp ten points'e atmaya gerek var mý
-}
 
+	int oldPointNumber = pointNumber;
+	pointNumber = newpointNumber;
+	points = new Point[pointNumber];
+	for (int i = 0; i < oldPointNumber; i++)
+	{
+		points[i] = tmppoints[i];
+	}
+	delete[] tmppoints;
+}
 int PointCloud::getpointNumber(){return this->pointNumber;}
 Point* PointCloud::getPoints() {return points;}  //diziyi return et
 void PointCloud::setPoints(int i, Point p) { this->points[i] = p;}
