@@ -1,5 +1,4 @@
 #include "Transform.h"
-double rotationMatrix[3][3] = { 0 };
 Transform::Transform(){
 	for (int i = 0; i < 3; i++)
 	{
@@ -11,6 +10,13 @@ Transform::Transform(){
 		for (int j = 0; j < 4; j++)
 		{
 			transMatrix[i][j] = 0;
+		}
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			rotationMatrix[i][j] = 0;
 		}
 	}
 }
@@ -38,7 +44,7 @@ double* Transform::getTrans()
 	return trans;
 }
 
-void Transform::setRotation(double ang[3]){ //açý verilmiþse
+void Transform::setRotation(double ang[3]){ //aÃ§Ä± verilmiÅŸse
 	//alfa = angles[2] || beta = angles[1] || gama = angles[0] 
 	rotationMatrix[0][0] = cos(ang[2]) * cos(ang[1]);
 	rotationMatrix[0][1] = (cos(ang[2]) * sin(ang[1]) * sin(ang[0])) - (sin(ang[2]) * cos(ang[0]));
@@ -51,7 +57,7 @@ void Transform::setRotation(double ang[3]){ //açý verilmiþse
 	rotationMatrix[2][2] = cos(ang[1]) * cos(ang[0]);
 
 }
-void Transform::setRotation(double rotation[3][3]) { //direkt matris verilmiþse
+void Transform::setRotation(double rotation[3][3]) { //direkt matris verilmiÅŸse
 	rotationMatrix[0][0] = rotation[0][0];
 	rotationMatrix[0][1] = rotation[0][1];
 	rotationMatrix[0][2] = rotation[0][2];
@@ -62,9 +68,9 @@ void Transform::setRotation(double rotation[3][3]) { //direkt matris verilmiþse
 	rotationMatrix[2][1] = rotation[2][1];
 	rotationMatrix[2][2] = rotation[2][2];
 }
-void Transform::setTranslation(double tr[3])
+void Transform::setTranslation()
 {
-	//transMatrix, rotationMatrix ve trans'ýn býrlesiminden olusur:
+	//transMatrix, rotationMatrix ve trans'Ä±n bÄ±rlesiminden olusur:
 	//R R R T 
 	//R R R T
 	//R R R T
@@ -75,7 +81,7 @@ void Transform::setTranslation(double tr[3])
 		}
 	}
 	for (int i = 0; i < 3; i++) { //aktarma 2
-		transMatrix[i][3] = tr[i];
+		transMatrix[i][3] = trans[i];
 	}
 	// aktarma 3 son satir
 	transMatrix[3][0] = 0;
@@ -89,13 +95,13 @@ Point Transform::doTransform(Point p){
 	double oldPoint[4] = { p.getX(),p.getY(),p.getZ(),1 };
 	//new: X Y Z 1 
 	double newPoint[4] = { 0 };
-	//matris çarpýmý
+	//matris Ã§arpÄ±mÄ±
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
 			newPoint[i] += (transMatrix[i][j] * oldPoint[j]);
 		}
 	}
-	//elde edilen yeni matris yeni noktaya aktarýlacak
+	//elde edilen yeni matris yeni noktaya aktarÄ±lacak
 	Point originPoint;
 	originPoint.setX(newPoint[0]);
 	originPoint.setY(newPoint[1]);
@@ -103,7 +109,7 @@ Point Transform::doTransform(Point p){
 	return originPoint;
 }
 
-PointCloud Transform::doTransform(PointCloud pc){
+PointCloud Transform::doTransform(PointCloud &pc){
 	PointCloud newPointCloud(pc.getpointNumber()); //ayni boyutta empty PointCloud
 	for (int i = 0; i < pc.getpointNumber(); i++) {
 		newPointCloud.getPoints()[i] = doTransform(pc.getPoints()[i]);
