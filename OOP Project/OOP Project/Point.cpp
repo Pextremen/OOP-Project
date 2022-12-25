@@ -21,7 +21,7 @@ void Point::setZ(double z) { this->z = z; }
 
 
 double Point::distance(const Point& p) const{
-	 /// Calculates the euclidean distance between two points, initial point-point with parameter
+	 /// Calculates the euclidean distance between two points, current point-point with parameter
 	double distance = pow((this->x - p.x), 2) + pow((this->y - p.y), 2) + pow((this->z - p.z), 2);
 	return pow(distance, 0.5);
 }
