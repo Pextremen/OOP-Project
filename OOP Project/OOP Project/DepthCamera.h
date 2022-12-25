@@ -7,6 +7,7 @@ using namespace std;
 
 class DepthCamera :public PointCloud {
 private:
+//! String file name to be read or written
 	string fileName;
 public:
 	DepthCamera(string = "");
