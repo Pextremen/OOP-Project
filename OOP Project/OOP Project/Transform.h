@@ -5,7 +5,7 @@ class Transform :public PointCloud {
 private:
 	double angles[3];  /*!<Holds three angle values, these angles will be used in rotation.*/
 	double trans[3]; /*!<Holds the distances between the origins of two coordinate axes.*/  
-	double transMatrix[4][4]; /*!<Creates the transformation matrix*/ 
+	double transMatrix[4][4]; /*!<Creates the transformation matrix, transMatrix is a combination of rotationMatrix and trans*/ 
 	double rotationMatrix[3][3]; /*!<Creates the rotation matrix*/ 
 
 public:
