@@ -2,10 +2,10 @@
 #include"Point.h"
 class PointCloud {
 private:
-	Point* points;
-	int pointNumber;
+	Point* points;/// array of points
+	int pointNumber;///size of array
 public:
-	PointCloud(int pointNumber=0);
+	PointCloud(int pointNumber = 0);
 	PointCloud(PointCloud&);
 	void setpointNumber(int pointNumber);
 	int getpointNumber();
