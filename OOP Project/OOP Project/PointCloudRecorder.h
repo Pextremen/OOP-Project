@@ -5,7 +5,7 @@
 using namespace std;
 class PointCloudRecorder :public PointCloud {
 private:
-	string fileName;
+	string fileName; ///name of file
 public:
 	PointCloudRecorder(string);
 	void setfileName(string);
