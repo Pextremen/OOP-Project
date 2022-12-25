@@ -4,7 +4,7 @@
 #include<string>
 class _3DGridMap :public PointCloud {
 private:
-	bool* map;
+	bool* map;///declaration array
 	float gridSize;
 	int depth;
 public:
