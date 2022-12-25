@@ -1,14 +1,17 @@
 #include "3DGridMap.h"
-_3DGridMap::_3DGridMap(float gridSize, int depth):gridSize(gridSize),depth(depth) {
-	this->map = new bool[depth * depth * depth];
-	for (int i = 0; i < depth * depth * depth; i++) {
-		map[i] = false;
-	}
+_3DGridMap::_3DGridMap(float gridSize, int depth) :gridSize(gridSize), depth(depth) {
+    /// constructor
+    this->map = new bool[depth * depth * depth];
+    for (int i = 0; i < depth * depth * depth; i++) {
+        map[i] = false;
+    }
 }
 _3DGridMap::~_3DGridMap() {
-	delete[] map;
+    /// destructor
+    delete[] map;
 }
-void _3DGridMap::setDepth(int newdepth){ //bakýlacak
+void _3DGridMap::setDepth(int newdepth) { 
+    /// set depth(size of array)
     bool* tempmap = new bool[newdepth * newdepth * newdepth];
     for (int i = 0; i < depth * depth * depth; i++) {
         tempmap[i] = map[i];
@@ -20,49 +23,55 @@ void _3DGridMap::setDepth(int newdepth){ //bakýlacak
     for (int i = 0; i < olddepth; i++) {
         map[i] = tempmap[i];
     }
-    delete[] tempmap; 
+    delete[] tempmap;
 }
 
 int _3DGridMap::getDepth()
 {
-	return	depth;
+    /// return depth
+    return	depth;
 }
 void _3DGridMap::setGridSize(float gridSize) {
-
-	this->gridSize = gridSize;
+    /// set grid size
+    this->gridSize = gridSize;
 }
 float _3DGridMap::getGridSize() {
-	return gridSize;
+    /// return grid size
+    return gridSize;
 }
 bool& _3DGridMap::operator()(int _x, int _y, int _z) {
-	return *(map + _x * depth * depth + _y * depth + _z);
+    /// operator overloading
+    return *(map + _x * depth * depth + _y * depth + _z);
 }
 bool _3DGridMap::getGrid(int x, int y, int z)
-{
-	return	(*this)(x, y, z);
+{   
+    /// return grid
+    return	(*this)(x, y, z);
 }
 
 void _3DGridMap::insertPoint(Point& p)
 {
-	int nx = int(floor(p.getX() / this->getGridSize()));
-	int ny = int(floor(p.getY() / this->getGridSize()));
-	int nz = int(floor(p.getZ() / this->getGridSize()));
-	if (nx >= 0 && ny >= 0 && nx >= 0 && nx < depth && ny < depth && nz < depth) {
-		(*this)(nx, ny, nz) = true;
-	}
+    /// insert a point
+    int nx = int(floor(p.getX() / this->getGridSize()));
+    int ny = int(floor(p.getY() / this->getGridSize()));
+    int nz = int(floor(p.getZ() / this->getGridSize()));
+    if (nx >= 0 && ny >= 0 && nx >= 0 && nx < depth && ny < depth && nz < depth) {
+        (*this)(nx, ny, nz) = true;
+    }
 }
 void _3DGridMap::insertPointCloud(PointCloud& pc)
 {
-	for (int i = 0; i < pc.getpointNumber(); i++) {
-		insertPoint(pc.getPoints()[i]);
-	}
+    /// insert a pointcloud
+    for (int i = 0; i < pc.getpointNumber(); i++) {
+        insertPoint(pc.getPoints()[i]);
+    }
 }
-bool _3DGridMap::loadMap(string fileName){
-    //delete[] map;
+bool _3DGridMap::loadMap(string fileName) {
+    /// to store array from file
     string word;
     string line;
     string line2;
-    fstream myfile; //Dosyaya islemleri
+    fstream myfile; 
     myfile.open(fileName, ios::in);
     if (myfile.is_open()) {
         getline(myfile, line);
@@ -92,10 +101,11 @@ bool _3DGridMap::loadMap(string fileName){
         return true;
     }
     else
-        return false;   
+        return false;
 }
 bool _3DGridMap::saveMap(string fileName) {
-    fstream myFile; //Dosyaya islemleri
+    /// transfer array to file
+    fstream myFile; 
     myFile.open(fileName, ios::out);
     int n = this->depth;
     if (myFile.is_open()) {
