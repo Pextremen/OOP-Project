@@ -1,6 +1,7 @@
 #include "PointCloud.h"
 
-PointCloud::PointCloud(int pointNumber){ //CONSTRUCTOR
+PointCloud::PointCloud(int pointNumber) { 
+	///constructor
 	if (pointNumber >= 0) { //Dizi size negatif olmamali
 		this->pointNumber = pointNumber;
 		points = new Point[pointNumber];
@@ -11,7 +12,8 @@ PointCloud::PointCloud(int pointNumber){ //CONSTRUCTOR
 	}
 }
 
-PointCloud::PointCloud(PointCloud& p){ // Copy constructor
+PointCloud::PointCloud(PointCloud& p) { 
+	/// Copy constructor
 	this->pointNumber = p.pointNumber;
 	points = new Point[pointNumber];
 	for (int i = 0; i < p.pointNumber; i++) {
@@ -20,6 +22,7 @@ PointCloud::PointCloud(PointCloud& p){ // Copy constructor
 }
 void PointCloud::setpointNumber(int newpointNumber)
 {
+	///set size of array
 	Point* tmppoints = new Point[newpointNumber];
 	for (int i = 0; i < pointNumber; i++)
 	{
@@ -36,10 +39,17 @@ void PointCloud::setpointNumber(int newpointNumber)
 	}
 	delete[] tmppoints;
 }
-int PointCloud::getpointNumber(){return this->pointNumber;}
-Point* PointCloud::getPoints() {return points;}  //diziyi return et
-void PointCloud::setPoints(int i, Point p) { this->points[i] = p;}
-PointCloud PointCloud::operator+(const PointCloud& p){
+int PointCloud::getpointNumber() { 
+	/// return pointNumber(size of array)
+	return this->pointNumber; }
+Point* PointCloud::getPoints() {
+	/// return array
+	return points; }  
+void PointCloud::setPoints(int i, Point p) { 
+	/// assign value to array
+	this->points[i] = p; }
+PointCloud PointCloud::operator+(const PointCloud& p) {
+		/// add two PointCloud
 	int tempsize = p.pointNumber + this->pointNumber;
 	PointCloud temp(tempsize);
 	for (int i = 0; i < tempsize; i++) {
@@ -53,7 +63,8 @@ PointCloud PointCloud::operator+(const PointCloud& p){
 	return temp;
 }
 
-PointCloud PointCloud::operator=(const PointCloud& p){
+PointCloud PointCloud::operator=(const PointCloud& p) {
+	/// equal operator overloading
 	this->pointNumber = p.pointNumber;
 	points = new Point[pointNumber];
 	for (int i = 0; i < p.pointNumber; i++) {
