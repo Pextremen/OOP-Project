@@ -1,12 +1,13 @@
 #include <iostream>
 #include"Transform.h"
 #include"DepthCamera.h"
-#include "PointCloudRecorder.h"
-#include "Point.h"
-#include "PointCloud.h"
+#include"PointCloudRecorder.h"
+#include"Point.h"
+#include"PointCloud.h"
+
 using namespace std;
 void Transform_Recorder_Test() {
-	cout << "******Transform_Recorder_Test******" << endl;
+	cout << "*****Transform_&_Recorder_Test*****" << endl;
 	cout << "-----------------------------------" << endl;
 	Transform T, T1, T2, T3;
 	DepthCamera d("cam.txt");
@@ -50,4 +51,6 @@ void Transform_Recorder_Test() {
 	finalcloud = A + B;
 	PointCloudRecorder recorder("final.txt");
 	recorder.save(finalcloud);
+	cout << "End of Transform_Recorder_Test" << endl;
+	cout << "\n\n";
 }

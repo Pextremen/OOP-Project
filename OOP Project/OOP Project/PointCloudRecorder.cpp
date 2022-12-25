@@ -16,8 +16,8 @@ bool PointCloudRecorder::save(PointCloud& pc){
 	myFile.open(getfileName(), ios::out);
 	if (myFile.is_open()) {
 		myFile << "///XYZRGB" << endl;
-		myFile << getpointNumber() << endl;
-		for (int i = 0; i < getpointNumber(); i++) {
+		myFile << pc.getpointNumber() << endl;
+		for (int i = 0; i < pc.getpointNumber(); i++) {
 			myFile << pc.getPoints()[i].getX() << " " << pc.getPoints()[i].getY() << " " << pc.getPoints()[i].getZ() << endl;
 		}
 		myFile.close();

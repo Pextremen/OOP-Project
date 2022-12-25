@@ -1,9 +1,11 @@
 #include <iostream>
 #include "PointCloud.h"
 using namespace std;
-//void PointCloudTest()
-int main() {
-	cout << "*****PointTest*****" << endl;
+
+void PointCloudTest() {
+	cout << "--------------------" << endl;
+	cout << "*****Point_Test*****" << endl;
+	cout << "--------------------" << endl;
 	Point p1(17, 13, 12);
 	Point p2(3, 4, 5);
 	Point p3(3, 4, 5);
@@ -20,7 +22,9 @@ int main() {
 	cout << "Distance between p3 and p4 is: " << distance << endl;
 	
 	//Test 2
+	cout << "------------------------" << endl;
 	cout << "*****PointCloudTest*****" << endl;
+	cout << "------------------------" << endl;
 	PointCloud pc1(4), pc2(4);
 	pc1.getPoints()[0] = p1;
 	pc1.getPoints()[1] = p2;
@@ -51,4 +55,6 @@ int main() {
 	for (int i = 0; i < pc1.getpointNumber(); i++) {
 		cout << "(" << pc1.getPoints()[i].getX() << ", " << pc1.getPoints()[i].getY() << ", " << pc1.getPoints()[i].getZ() << ")" << endl;
 	}
+	cout << "End of PointCloudTest" << endl;
+	cout << "\n\n";
 }
