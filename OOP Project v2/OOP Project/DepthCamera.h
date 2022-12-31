@@ -14,4 +14,5 @@ public:
 	void setfileName(string);
 	string getfileName();
 	PointCloud capture();
+	PointCloud captureFor();
 };

@@ -52,3 +52,6 @@ PointCloud DepthCamera::capture() { //cam1.txt
     }
     return temp;
 }
+PointCloud DepthCamera::captureFor() {
+
+}
