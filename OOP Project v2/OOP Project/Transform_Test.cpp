@@ -19,7 +19,7 @@ void Transform_Recorder_Test() {
 	pc1 = d1.capture();
 	pc2 = d2.capture();
 	pc3 = d3.capture();
-	//pc için
+	//pc iÃ§in
 	double rotation0[3][3] = { {-0.7076050, 0.0065031, -0.7065783 },
 							   {0.7066082, 0.0065134, -0.7075750},
 							   {0.0000008, -0.9999576, -0.0092041} };
@@ -36,14 +36,18 @@ void Transform_Recorder_Test() {
 	T1.setRotation(rotation1);
 	T2.setRotation(rotation2);
 	T3.setRotation(rotation3);
-	T.setTrans(1.95704, 1.93000, 1.05707);
-	T1.setTrans(-1.91288, 1.94412, 1.05465);
-	T2.setTrans(1.96978, -1.94622, 1.05264);
-	T3.setTrans(-1.87445, -1.95027, 1.06432);
-	T.setTranslation();
-	T1.setTranslation();
-	T2.setTranslation();
-	T3.setTranslation();
+	Eigen::Vector3d tr;
+	Eigen::Vector3d tr1;
+	Eigen::Vector3d tr2;
+	Eigen::Vector3d tr3;
+	tr << 1.95704, 1.93000, 1.05707;
+	tr1 << -1.91288, 1.94412, 1.05465;
+	tr2 << 1.96978, -1.94622, 1.05264;
+	tr3 << -1.87445, -1.95027, 1.06432;
+	T.setTranslation(tr);
+	T1.setTranslation(tr1);
+	T2.setTranslation(tr2);
+	T3.setTranslation(tr3);
 	PointCloud finalcloud;
 	PointCloud A, B;
 	A = T.doTransform(pc) + T1.doTransform(pc1);
