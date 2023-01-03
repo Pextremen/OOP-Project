@@ -22,19 +22,25 @@ void MapperInterface::setRecorder(PointCloudRecorder* recorder)
 bool MapperInterface::generate()
 {
     
-    for (auto generator : generators)
+  if (generators.empty())
     {
-        auto cloud = generator->captureFor();
-        pointCloud.push_back(cloud);
+        return false;
     }
-
-    return !pointCloud.empty();
+    else
+    {
+        for (int i = 0; i < generators.size(); i++)
+        {
+            patch = generators[i]->captureFor();
+            pointCloud = pointCloud + patch;
+        }
+        return true;
+    }
 }
 
 bool MapperInterface::recordPointCloud()
 {
     if (recorder)
-        return recorder->record(pointCloud);
+        return recorder->save(pointCloud);
     return false;
 }
 
