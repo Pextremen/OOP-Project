@@ -1,8 +1,10 @@
 #include "MapperInterface.h"
+#include<vector>
+using namespace std;
 
 MapperInterface::MapperInterface()
 {
-   
+   generators = vector<PointCloudGenerator*>();
 }
 
 void MapperInterface::addGenerator(PointCloudGenerator* generator)
