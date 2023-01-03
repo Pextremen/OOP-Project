@@ -34,7 +34,7 @@ bool MapperInterface::generate()
 bool MapperInterface::recordPointCloud()
 {
     if (recorder)
-        return recorder->record(pointCloud);
+        return recorder->save(pointCloud);
     return false;
 }
 
