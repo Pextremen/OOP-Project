@@ -1,10 +1,10 @@
 #pragma once
-
+#include "Transform.h"
+#include "PointCloud.h"
 class PointCloudGenerator {
-private:
 	Transform transform;
 public:
 	PointCloudGenerator();
-	PointCloud capture();
-	PointCloud captureFor();
+	virtual PointCloud capture() = 0;
+	virtual PointCloud captureFor() = 0;
 };

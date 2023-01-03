@@ -1,11 +1,15 @@
 #pragma once
 #include <vector>
+#include"PointCloudGenerator.h"
+#include"PointCloud.h"
+#include"Map.h"
+#include"PointCloudRecorder.h"
 class MapperInterface {
 private:
 	PointCloud pointCloud;
 	PointCloud patch;
 	vector<PointCloudGenerator*> generators;
-	PointCloudRedorcer* recorder;
+	PointCloudRecorder* recorder;
 	Map* map;
 public:
 	MapperInterface();

@@ -1,11 +1,10 @@
 #pragma once
+#include "MapperInterface.h"
 class Map {
 public:
 	Map();
-	void setMap();
-	getMap();
-	void insertPointCloud(PointCloud& pc);
-	void insertPoint(Point& p);
-	bool loadMap(fileName);
-	bool saveMap(fileName);
+	virtual void insertPointCloud(PointCloud& pc) = 0;
+	virtual void insertPoint(Point& p) = 0;
+	virtual bool loadMap(fileName) = 0;
+	virtual bool saveMap(fileName) = 0;
 };

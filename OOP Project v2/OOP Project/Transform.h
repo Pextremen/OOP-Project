@@ -1,6 +1,5 @@
 #pragma once
 #include<Eigen/Dense>
-#include "PointCloud.h"
 class Transform {
 private:
 	Eigen::Vector3d angles;  /*!<Holds three angle values, these angles will be used in rotation.*/
@@ -17,7 +16,6 @@ public:
 	Eigen::Vector3d* getTrans();
 	void setRotation(double angles[]);
 	void setRotation(Eigen::Vector3d);
-	void setRotation(double rotation[3][3]);
 	void setTranslation(Eigen::Vector3d);
 	Point doTransform(Point p);
 	PointCloud doTransform(PointCloud& pc);

@@ -1,13 +1,13 @@
 #pragma once
-#include "PointCloud.h"
+#include "PointCloudGenerator.h"
+#include"Transform.h"
 #include <string>
 #include<fstream>
 #include <sstream>
 using namespace std;
-
-class DepthCamera :public PointCloud {
+class DepthCamera :public PointCloudGenerator {
 private:
-//! String file name to be read or written
+	//! String file name to be read or written
 	string fileName;
 public:
 	DepthCamera(string = "");
