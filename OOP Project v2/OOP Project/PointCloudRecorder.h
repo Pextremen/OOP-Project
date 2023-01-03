@@ -1,8 +1,9 @@
 #pragma once
+#include "PointCloud.h"
 #include <string>
 #include<fstream>
 using namespace std;
-class PointCloudRecorder :{
+class PointCloudRecorder {
 private:
 	string fileName; ///name of file
 public:

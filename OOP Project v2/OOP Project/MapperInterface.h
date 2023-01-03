@@ -6,17 +6,17 @@
 #include"PointCloudRecorder.h"
 class MapperInterface {
 private:
-	PointCloud pointCloud;
-	PointCloud patch;
-	vector<PointCloudGenerator*> generators;
-	PointCloudRecorder* recorder;
-	Map* map;
+    PointCloud pointCloud;
+    PointCloud patch;
+    vector<PointCloudGenerator*> generators;
+    PointCloudRecorder* recorder;
+    int *map;
 public:
-	MapperInterface();
-	void addGenerator(PointCloudGenerator*);
-	void setRecorder(PointCloudRecorder*);
-	bool generate();
-	bool recordPointCloud();
-	bool recordMap();
-	bool insertMap();
+    MapperInterface(string);
+    void addGenerator(PointCloudGenerator*);
+    void setRecorder(PointCloudRecorder*);
+    bool generate();
+    bool recordPointCloud();
+    bool recordMap();
+    bool insertMap();
 };

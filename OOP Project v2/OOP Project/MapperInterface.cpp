@@ -1,15 +1,12 @@
 #include "MapperInterface.h"
-#include<vector>
-using namespace std;
 
-MapperInterface::MapperInterface()
+MapperInterface::MapperInterface(string fileName)
 {
-   generators = vector<PointCloudGenerator*>();
+    recorder->setfileName(fileName);
 }
 
 void MapperInterface::addGenerator(PointCloudGenerator* generator)
 {
-   
     generators.push_back(generator);
 }
 
@@ -19,38 +16,25 @@ void MapperInterface::setRecorder(PointCloudRecorder* recorder)
     this->recorder = recorder;
 }
 
-bool MapperInterface::generate()
-{
-    
-  if (generators.empty())
-    {
-        return false;
+bool MapperInterface::generate() {
+    for (int i = 0; i < generators.size(); i++) {
+        pointCloud = pointCloud + generators[i]->captureFor();
     }
-    else
-    {
-        for (int i = 0; i < generators.size(); i++)
-        {
-            patch = generators[i]->captureFor();
-            pointCloud = pointCloud + patch;
-        }
-        return true;
-    }
+    return 1;
 }
 
 bool MapperInterface::recordPointCloud()
 {
-    if (recorder)
-        return recorder->save(pointCloud);
-    return false;
+    recorder->save(pointCloud);
+    return 1;
 }
 
-bool MapperInterface::recordMap()
-{
-   // mapi kaydet
+bool MapperInterface::recordMap() {
+    //map->saveMap("map.txt");    // mapi kaydet
+    return 1;
 }
 
-bool MapperInterface::insertMap()
-{
-    // mape nokta bulutlarını ekle
-    //nesnenin insert fonksiyonunu çağır
+bool MapperInterface::insertMap() {
+    //map->insertPointCloud(pointCloud);
+    return 1;
 }
