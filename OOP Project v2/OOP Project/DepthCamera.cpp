@@ -1,16 +1,18 @@
 #include "DepthCamera.h"
-
+//! Constructor
 DepthCamera::DepthCamera(string fileName) :fileName(fileName) {}
-
+//! Changes the filename
 void DepthCamera::setfileName(string fileName)
 {
     this->fileName = fileName;
+    
 }
-
+//! Reaches the name of the instantaneously read or written file.
 string DepthCamera::getfileName()
 {
     return fileName;
 }
+//! When the capture function is called, it reads the points and assigns them to the created point cloud object. Returns the point cloud. This process is a simulation of the camera. Points are taken from a file rather than a camera.
 PointCloud DepthCamera::capture() { //cam1.txt
     PointCloud temp;
     int i = 1;
@@ -51,6 +53,7 @@ PointCloud DepthCamera::capture() { //cam1.txt
     }
     return temp;
 }
+//!it will do the same with the capture function; however, the point cloud will be returned after it has been transformed with the transform object of which it is a member.
 PointCloud DepthCamera::captureFor() {
     Transform T;
     PointCloud pc;
