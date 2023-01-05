@@ -8,9 +8,11 @@
 
 class MapperInterface {
 private:
-	PointCloud pointCloud;  /*!< final cloud */  
+	PointCloud pointCloud;  /*!< final cloud */ 
+	//! to add cloud 
 	PointCloud patch;
-	vector<PointCloudGenerator*> generators; /*!<vector for generators */      
+	vector<PointCloudGenerator*> generators; /*!<vector for generators */    
+	//! Pointer of recorder  
 	PointCloudRecorder* recorder;
     Map* map; /*!< to write-save map*/      
 public:
