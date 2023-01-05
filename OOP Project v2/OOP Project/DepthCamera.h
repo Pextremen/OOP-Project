@@ -11,6 +11,7 @@ private:
 	//! String file name to be read or written
 	string fileName;
 public:
+	//! Constructor
 	DepthCamera(string = "");
 	void setfileName(string);
 	string getfileName();
