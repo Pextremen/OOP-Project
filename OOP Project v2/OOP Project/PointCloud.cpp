@@ -11,7 +11,7 @@ PointCloud::PointCloud(PointCloud& p) {
     pointNumber = p.getpointNumber();
     this->points = p.points;
 }
-
+//! Sets the number of points according to the entered input.
 void PointCloud::setpointNumber(int newpointNumber)
 {
     this->points.resize(newpointNumber);
