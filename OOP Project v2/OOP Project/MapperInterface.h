@@ -5,7 +5,7 @@
 #include"Map.h"
 #include "3DGridMap.h"
 #include"PointCloudRecorder.h"
-class Map;
+
 class MapperInterface {
 private:
 	PointCloud pointCloud; //final cloud
@@ -14,7 +14,7 @@ private:
 	PointCloudRecorder* recorder; //pc yazma için
     Map* map; //map yazma için
 public:
-	MapperInterface(string);
+	MapperInterface(Map*, PointCloudRecorder*, vector<PointCloudGenerator*>);
 	void addGenerator(PointCloudGenerator*);
 	void setRecorder(PointCloudRecorder*);
 	bool generate();
