@@ -6,6 +6,6 @@ class PointCloudGenerator
 {
 	Transform transform;	
 public:
-	virtual PointCloud capture() = 0;//Bu fonksiyon pure virtual fonksiyondur.
-	virtual PointCloud captureFor() = 0;//Bu fonksiyon pure virtual fonksiyondur.
+	virtual PointCloud capture() = 0;//pure virtual function
+	virtual PointCloud captureFor() = 0;//pure virtual function
 };
