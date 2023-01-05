@@ -4,8 +4,10 @@
 using namespace std;
 class PointCloud {
 private:
-    vector<Point> points; /*!<vector of points*/ 
-    int pointNumber; /*!<size of vector */  
+    //! vector of points
+    vector<Point> points; 
+    //! size of vector 
+    int pointNumber; 
 public:
     PointCloud(int pointNumber = 0);
     PointCloud(PointCloud&);
