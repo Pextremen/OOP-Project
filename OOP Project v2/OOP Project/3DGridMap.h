@@ -8,6 +8,7 @@ class _3DGridMap :public Map {
 private:
 	bool* map;///declaration array
 	float gridSize;
+	//! Depth of map (depth*depth*depth)
 	int depth;
 public:
 	_3DGridMap(float = 0, int = 0);
