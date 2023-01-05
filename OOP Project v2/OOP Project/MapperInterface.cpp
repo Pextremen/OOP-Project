@@ -8,7 +8,7 @@ void MapperInterface::addGenerator(PointCloudGenerator* generator)
     /// Adds generator elements to vector
     generators.push_back(generator);  
 }
-
+//! Sets the recorder according to the given input
 void MapperInterface::setRecorder(PointCloudRecorder* recorder)
 {
     this->recorder = recorder;
