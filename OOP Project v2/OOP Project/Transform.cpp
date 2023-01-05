@@ -60,7 +60,7 @@ void Transform::setRotation(double rotation[3][3]) {
 }
 void Transform::setTranslation(Eigen::Vector3d tr)
 {
-    //transMatrix is a combination of rotationMatrix and trans
+    //! transMatrix is a combination of rotationMatrix and trans
     //R R R T 
     //R R R T
     //R R R T
