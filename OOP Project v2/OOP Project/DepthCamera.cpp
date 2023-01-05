@@ -1,13 +1,12 @@
 #include "DepthCamera.h"
-//! Constructor
+
 DepthCamera::DepthCamera(string fileName) :fileName(fileName) {}
-//! Changes the filename
+//! Sets the file name according to the given input
 void DepthCamera::setfileName(string fileName)
 {
     this->fileName = fileName;
-    
 }
-//! Reaches the name of the instantaneously read or written file.
+//! Return file name
 string DepthCamera::getfileName()
 {
     return fileName;
@@ -53,7 +52,7 @@ PointCloud DepthCamera::capture() { //cam1.txt
     }
     return temp;
 }
-//!it will do the same with the capture function; however, the point cloud will be returned after it has been transformed with the transform object of which it is a member.
+//! First of all, it will do the same with the capture function; however, the point cloud will be returned after it has been transformed with the transform object of which it is a member.
 PointCloud DepthCamera::captureFor() {
     Transform T;
     PointCloud pc;
