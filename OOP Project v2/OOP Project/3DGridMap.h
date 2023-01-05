@@ -1,7 +1,9 @@
 #pragma once
+#include "PointCloud.h"
 #include "Map.h"
 #include<fstream>
 #include<string>
+
 class _3DGridMap :public Map {
 private:
 	bool* map;///declaration array
