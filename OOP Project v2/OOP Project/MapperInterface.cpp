@@ -5,7 +5,8 @@ recorder(rec), generators(arr){}
 
 void MapperInterface::addGenerator(PointCloudGenerator* generator)
 {
-    generators.push_back(generator);
+    /// Adds generator elements to vector
+    generators.push_back(generator);  
 }
 
 void MapperInterface::setRecorder(PointCloudRecorder* recorder)
@@ -14,7 +15,9 @@ void MapperInterface::setRecorder(PointCloudRecorder* recorder)
 }
 bool MapperInterface::generate()
 {
-    // PointCloudGenerator nesnesi yok ya da eklenmemis.
+    /// captureFor function from all objects in generators member point clouds are provided by calling
+   /// A point cloud is then added to the pointCloud member
+
     if (generators.empty())
     {
         return false;
@@ -32,15 +35,19 @@ bool MapperInterface::generate()
 
 bool MapperInterface::recordPointCloud()
 {
+    ///registers pointCloud
     recorder->save(pointCloud);
     return 1;
 }
 
 bool MapperInterface::insertMap() {
+    
+///renders point clouds on the map
    map->insertPointCloud(pointCloud);
    return 1;
 }
 bool MapperInterface::recordMap() {
-   map->saveMap("map.txt"); //map'i kaydet
+   ///functions save pointCloud and map to file respectively
+   map->saveMap("map.txt"); 
    return 1;
 }
