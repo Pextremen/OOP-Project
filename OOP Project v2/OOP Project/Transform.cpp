@@ -1,9 +1,7 @@
 #include "Transform.h"
 Transform::Transform() {
-    angles << 0, 0,
-        0, 0;
-    trans << 0, 0,
-        0, 0;
+    angles << 0, 0, 0;
+    trans << 0, 0, 0;
     transMatrix << 0, 0, 0, 0,
         0, 0, 0, 0,
         0, 0, 0, 0,
@@ -50,15 +48,15 @@ void Transform::setRotation(Eigen::Vector3d ang) {
 }
 void Transform::setRotation(double rotation[3][3]) {
     ///Creates the rotationMatrix
-    rotationMatrix(0,0) = rotation[0][0];
-    rotationMatrix(0,1) = rotation[0][1];
+    rotationMatrix(0, 0) = rotation[0][0];
+    rotationMatrix(0, 1) = rotation[0][1];
     rotationMatrix(0, 2) = rotation[0][2];
     rotationMatrix(1, 0) = rotation[1][0];
     rotationMatrix(1, 1) = rotation[1][1];
     rotationMatrix(1, 2) = rotation[1][2];
     rotationMatrix(2, 0) = rotation[2][0];
     rotationMatrix(2, 1) = rotation[2][1];
-    rotationMatrix(2,2) = rotation[2][2];
+    rotationMatrix(2, 2) = rotation[2][2];
 }
 void Transform::setTranslation(Eigen::Vector3d tr)
 {
@@ -73,7 +71,7 @@ void Transform::setTranslation(Eigen::Vector3d tr)
         }
     }
     for (int i = 0; i < 3; i++) {
-        transMatrix(i, 3) = trans(i);
+        transMatrix(i, 3) = tr(i);
     }
     // aktarma 3 son satir
     transMatrix(3, 0) = 0;
