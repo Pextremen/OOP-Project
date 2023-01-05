@@ -13,8 +13,11 @@ public:
 	Transform();
 	void setAngles(double, double, double);
 	Eigen::Vector3d* getAngles();
+	//! Take input given trans values
 	void setTrans(double, double, double);
+	//! Return trans
 	Eigen::Vector3d* getTrans();
+	//! Creates the rotationMatrix
 	void setRotation(double angles[]);
 	void setRotation(Eigen::Vector3d);
 	void setRotation(double rotation[3][3]);
