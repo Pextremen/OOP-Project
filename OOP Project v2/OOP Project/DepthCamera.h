@@ -1,6 +1,7 @@
 #pragma once
 #include "PointCloudGenerator.h"
 #include"Transform.h"
+#include "PointCloud.h"
 #include <string>
 #include<fstream>
 #include <sstream>
