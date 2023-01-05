@@ -13,9 +13,13 @@ public:
 	double getX();
 	double getY();
 	double getZ();
+	//! Sets the x value according to the entered input.
 	void setX(double);
+	//! Sets the y value according to the entered input.
 	void setY(double);
+	//! Sets the z value according to the entered input.
 	void setZ(double);
 	double distance(const Point&)const;
+	//! Checks if two points are equal.
 	bool operator==(const Point&);
 };
