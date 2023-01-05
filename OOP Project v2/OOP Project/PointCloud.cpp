@@ -8,6 +8,7 @@ PointCloud::PointCloud(int pointNumber) {
 
 PointCloud::PointCloud(PointCloud& p) {
     /// Copy constructor
+    pointNumber = p.getpointNumber();
     this->points = p.points;
 }
 
